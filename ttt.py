@@ -13,9 +13,16 @@ if call(split("erlc ttt.erl")):
 erl = Popen(split("erl -s ttt -noshell"), stdin=PIPE, stdout=PIPE, stderr=STDOUT)
 sleep(1)
 try:
-    c = Telnet("localhost", 9999)
-    c.interact()
-    c.close()
+    c1 = Telnet("localhost", 9999)
+    c2 = Telnet("localhost", 9999)
+
+    c1.write("ping\n")
+    assert c2.read_some() == "ping\n"
+    c2.write("pong\n")
+    assert c1.read_some() == "pong\n"
+
+    c1.close()
+    c2.close()
 finally:
     erl.terminate()
     erl.wait()
