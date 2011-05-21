@@ -1,0 +1,6 @@
+this project starts as a simple echo server.
+
+run ttt.py, to start an echo server, to which ttt.py will then start a telnet connection.
+
+whatever you enter, server will echo back. press Ctrl-D to quit.
+
