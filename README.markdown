@@ -1,19 +1,17 @@
 compile server
 
 ```
-erlc ttt.erl
+$ erl -make
 ```
 
-start server
+run server
 
 ```
-erl -s ttt -noshell
+$ erl -pz ebin
+1> application:start(ttt).
 ```
 
 run client
-
 ```
 python ttt.py
 ```
-
-
